@@ -36,7 +36,7 @@ public class BlackOpsSpecialistService {
         } else if (equipment != null) {
             return repository.findByEquipmentContainingIgnoreCase(equipment);
         } else {
-            return repository.findAll();
+            return getAllBlackOpsSpecialists();
         }
     }
 
