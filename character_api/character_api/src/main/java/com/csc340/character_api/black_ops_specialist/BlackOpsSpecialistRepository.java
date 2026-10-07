@@ -23,4 +23,10 @@ public interface BlackOpsSpecialistRepository extends JpaRepository<BlackOpsSpec
 
     // Custom query method to find BlackOpsSpecialist entities by roles and equipment (case-insensitive).
     List<BlackOpsSpecialist> findByRolesContainingIgnoreCaseAndEquipmentContainingIgnoreCase(String roles, String equipment);
+
+    // Custom query method to find BlackOpsSpecialist entities by universe and equipment (case-insensitive).
+    List<BlackOpsSpecialist> findByUniverseContainingIgnoreCaseAndEquipmentContainingIgnoreCase(String universe, String equipment);
+    
+    // Custom query method to find BlackOpsSpecialist entities by roles, universe, and equipment (case-insensitive).
+    List<BlackOpsSpecialist> findByRolesContainingIgnoreCaseAndUniverseContainingIgnoreCaseAndEquipmentContainingIgnoreCase(String roles, String universe, String equipment);
 }
