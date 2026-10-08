@@ -2,9 +2,6 @@ package com.csc340.character_api.black_ops_specialist;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "black_ops_specialists")
@@ -28,9 +25,6 @@ public class BlackOpsSpecialist {
 
     @NotBlank
     private String equipment;
-
-    @NotNull
-    private LocalDate dateAdded;
 
     public BlackOpsSpecialist() {
         
@@ -78,13 +72,5 @@ public class BlackOpsSpecialist {
 
     public void setEquipment(String equipment) {
         this.equipment = equipment;
-    }
-
-    public LocalDate getDateAdded() {
-        return dateAdded;
-    }
-
-    public void setDateAdded(LocalDate dateAdded) {
-        this.dateAdded = dateAdded;
     }
 }
