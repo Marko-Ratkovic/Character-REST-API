@@ -1,0 +1,48 @@
+body {
+    background-color: black;
+}
+
+.btn-orange-active {
+    background-color: orange !important;
+    border-color: orange !important;
+    color: black !important;
+}
+        
+.btn-orange-inactive {
+    background-color: transparent !important;
+    border: 2px solid orange !important;
+    color: orange !important;
+}
+
+.btn-orange-inactive:hover {
+    background-color: orange !important;
+    color: black !important;
+}
+
+.card-img-top {
+    height: 280px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.form-control, .form-select {
+    background-color: #111 !important;
+    color: orange !important;
+    border: 1px solid orange !important;
+    border-radius: 6px !important;
+    padding: 10px 14px !important;
+}
+
+.form-control::placeholder {
+    color: #a06a00 !important;
+}
+
+.form-label {
+    color: orange !important;
+    margin-bottom: 6px !important;
+}
+
+.form-text {
+    margin-top: 4px !important;
+    margin-bottom: 20px !important;
+}
