@@ -1,38 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a New Specialist</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" style="color: orange;" href="index">Call of Duty Specialists Gallery</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link btn-orange-inactive" href="index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn-orange-inactive" href="details">Details</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn-orange-inactive" href="about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active btn-orange-active" href="new-character-form">Add Specialist</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<#import "layout.ftlh" as l>
+<@l.page title=formTitle active=(characterId??)?then('', 'new')>
     <div class="container py-5">
         <div class="mx-auto p-5 rounded" style="max-width: 700px; background-color: #212529; box-shadow: 0 0 20px rgba(255,165,0,0.08);">
             <h1 class="fw-bold text-center mb-2" style="color: orange !important;">Add a New Specialist</h1>
@@ -92,5 +59,4 @@
             </form>
         </div>
     </div>
-</body>
-</html>
+</@l.page>

@@ -1,49 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About the Gallery</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" style="color: orange;" href="index.html">Call of Duty Specialists Gallery</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-                <a class="nav-link btn-orange-inactive" href="index">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link btn-orange-inactive" href="details">Details</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active btn-orange-active" href="about">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link btn-orange-inactive" href="new-character-form">Add Specialist</a>
-            </li>
-        </ul>
-      </div>
-    </div>
-</nav>
+<#import "layout.ftlh" as l>
+<@l.page title="About" active="about">
     <div class="container py-5">
         <div class="mx-auto p-5 rounded" style="max-width: 1000px; background-color: #212529; box-shadow: 0 0 20px rgba(255,165,0,0.08);">
         
-            <!-- Header -->
+            <#-- Header -->
             <div class="text-center mb-4">
                 <h1 class="fw-bold" style="color: orange !important;">About This Gallery</h1>
                 <p class="text-secondary" style="color: orange !important;">Learn more about our Call of Duty specialist gallery.</p>
             </div>
             <hr class="border-secondary mb-5">
             
-            <!-- Content -->
+            <#-- Content -->
             <div class="row g-4 align-items-start">
                 <div class="col-md-8">
                     <h3 class="fw-bold" style="color: orange !important;">Welcome to the Call of Duty Specialist Gallery</h3>
@@ -73,11 +40,10 @@
                 </div>
             </div>
 
-            <!-- Bottom button -->
+            <#-- Bottom button -->
             <div class="bg-secondary bg-opacity-10 text-center py-4 mt-5 rounded">
-                <a href="index" class="btn btn-danger px-4 py-2">Back to Gallery</a>
+                <a href="/" class="btn btn-danger px-4 py-2">Back to Gallery</a>
             </div>
         </div>
     </div>
-</body>
-</html>
+</@l.page>

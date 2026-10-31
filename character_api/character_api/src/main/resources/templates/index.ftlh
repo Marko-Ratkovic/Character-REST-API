@@ -1,44 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Call of Duty Specialists Gallery</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css"> 
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" style="color: orange;" href="index">Call of Duty Specialists Gallery</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-                <a class="nav-link active btn-orange-active" href="index">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link btn-orange-inactive" href="details">Details</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link btn-orange-inactive" href="about">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link btn-orange-inactive" href="new-character-form">Add Specialist</a>
-            </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<#import "layout.ftlh" as l>
+<@l.page title="Gallery" active="home">
   <div class="bg-dark text-light py-4">
     <div class="container">
       <h1 class="fw-bold" style="color: orange;">Call of Duty Specialists Gallery</h1>
       <p class="mb-4" style="color: orange;">Explore the amazing collection of diverse specialists in the Call of Duty Black Ops universe.</p>
 
-      <!-- Search bar + clear button -->
+      <#-- Search bar + clear button -->
       <div class="row g-2 mb-3">
         <div class="col">
           <input type="text" class="form-control bg-dark text-light border-secondary" placeholder="Search by character name or role...">
@@ -48,7 +15,7 @@
         </div>
       </div>
 
-      <!-- Filter pill buttons -->
+      <#-- Filter pill buttons -->
       <div class="mb-3">
         <button class="btn btn-outline-secondary btn-sm me-2 btn-orange-active">All</button>
         <button class="btn btn-outline-secondary btn-sm me-2 btn-orange-inactive">Pyrotechnic</button>
@@ -65,7 +32,7 @@
     <p class="text-secondary" style="color: orange !important;">Showing <strong>6</strong> specialist(s)</p>
 
     <div class="row g-4">
-    <!-- Card 1 -->
+    <#-- Card 1 -->
     <div class="col-md-4">
         <div class="card bg-dark text-light border-secondary h-100">
             <img src="/images/Firebreak.jpg" class="card-img-top" alt="Firebreak">
@@ -81,7 +48,7 @@
         </div>
     </div>
 
-    <!-- Card 2 -->
+    <#-- Card 2 -->
     <div class="col-md-4">
         <div class="card bg-dark text-light border-secondary h-100">
         <img src="/images/Spectre.jpg" class="card-img-top" alt="Spectre">
@@ -97,7 +64,7 @@
         </div>
     </div>
   
-    <!-- Card 3 -->
+    <#-- Card 3 -->
     <div class="col-md-4">
         <div class="card bg-dark text-light border-secondary h-100">
         <img src="/images/Reaper.jpg" class="card-img-top" alt="Reaper">
@@ -113,7 +80,7 @@
         </div>
     </div>
 
-    <!-- Card 4 -->
+    <#-- Card 4 -->
     <div class="col-md-4">
         <div class="card bg-dark text-light border-secondary h-100">
         <img src="/images/Crash.jpg" class="card-img-top" alt="Crash">
@@ -129,7 +96,7 @@
         </div>
     </div>
 
-    <!-- Card 5 -->
+    <#-- Card 5 -->
     <div class="col-md-4">
         <div class="card bg-dark text-light border-secondary h-100">
         <img src="/images/Zero.jpg" class="card-img-top" alt="Zero">
@@ -145,7 +112,7 @@
         </div>
     </div>
 
-    <!-- Card 6 -->
+    <#-- Card 6 -->
     <div class="col-md-4">
         <div class="card bg-dark text-light border-secondary h-100">
         <img src="/images/Recon.jpg" class="card-img-top" alt="Recon">
@@ -164,5 +131,4 @@
   <footer class="bg-dark text-center py-3 mt-5">
     <p class="text-light mb-0" style="color: orange !important;">© 2026 Call of Duty Specialists Gallery. Created as an educational project.</p>
   </footer>
-</body>
-</html>
+</@l.page>
