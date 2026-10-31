@@ -2,6 +2,10 @@ body {
     background-color: black;
 }
 
+.navbar {
+    background-color: black;
+}
+
 .btn-orange-active {
     background-color: orange !important;
     border-color: orange !important;
