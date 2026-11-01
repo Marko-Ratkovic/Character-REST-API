@@ -74,7 +74,7 @@ public class BlackOpsSpecialistUiController {
         }
         BlackOpsSpecialist createdCharacter = service.createBlackOpsSpecialist(character);
         redirectAttributes.addFlashAttribute("message", "Specialist added successfully!");
-        return "redirect:/characters" + createdCharacter.getCharacterId();
+        return "redirect:/characters/" + createdCharacter.getCharacterId();
     }
 
     // Edit character form page
@@ -105,6 +105,14 @@ public class BlackOpsSpecialistUiController {
         BlackOpsSpecialist updatedCharacter = service.updateBlackOpsSpecialist(id, character);
         redirectAttributes.addFlashAttribute("message", "Specialist updated successfully!");
         return "redirect:/characters/" + updatedCharacter.getCharacterId();
+    }
+
+    // Delete character
+    @PostMapping("/characters/{id}/delete")
+    public String deleteSpecialist(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        service.deleteBlackOpsSpecialist(id); // Ensure the entity exists before attempting to delete and if entity not found, throws a 404 error.
+        redirectAttributes.addFlashAttribute("message", "Specialist deleted successfully!");
+        return "redirect:/characters";
     }
 
     // About page
