@@ -1,8 +1,7 @@
 <#import "layout.ftlh" as l>
 <@l.page title=formTitle active=(characterId??)?then('', 'new')>
     <div class="mx-auto p-5 rounded my-4" style="max-width: 700px; background-color: #212529; box-shadow: 0 0 20px rgba(255,165,0,0.08);">
-        <h1 class="fw-bold text-center mb-2" style="color: orange !important;">Add a New Specialist</h1>
-        <p class="text-center mb-4" style="color: orange !important;">Fill out the form below to add a new specialist to the gallery from the official Black Ops universe.</p>
+        <h1 class="fw-bold text-center mb-4" style="color: orange !important;">${formTitle}</h1>
 
         <#if errors??>
             <div class="alert alert-danger">
@@ -12,7 +11,7 @@
             </div>
         </#if>
 
-        <form class="mx-auto" style="max-width: 600px;" action="/characters" method="post">
+        <form method="post" action="${formAction}" class="form mx-auto" style="max-width: 600px;">
             <div class="mb-3">
                 <label for="name" class="form-label" style="color: orange !important;">Name*</label>
                 <input type="text" class="form-control" id="name" name="name" value="${(myChar.name)!''}" placeholder="e.g. Firebreak" required>
@@ -61,7 +60,7 @@
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-orange-active">Add Specialist</button>
+                <button type="submit" class="btn btn-orange-active">${(characterId??)?then('Save Changes', 'Add Specialist')}</button>
                 <a href="/" class="btn btn-outline-light px-4 py-2 ms-2">Cancel</a>
             </div>
         </form>

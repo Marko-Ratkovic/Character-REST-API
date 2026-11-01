@@ -43,9 +43,10 @@
             </div>
         </div>
 
-        <#-- Bottom button -->
+        <#-- Bottom buttons -->
         <div class="text-center mt-5">
             <a href="/characters" class="btn btn-danger px-4 py-2">View All Specialists</a>
+            <a href="/characters/${myChar.characterId?c}/edit" class="btn btn-orange-inactive px-4 py-2 ms-2">Edit</a>
         </div>
     </div>
 </@l.page>

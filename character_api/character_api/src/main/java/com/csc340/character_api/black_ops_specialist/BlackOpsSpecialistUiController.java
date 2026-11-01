@@ -57,6 +57,7 @@ public class BlackOpsSpecialistUiController {
         BlackOpsSpecialist character = new BlackOpsSpecialist();
         model.addAttribute("myChar", character);
         model.addAttribute("formTitle", "Add Specialist");
+        model.addAttribute("formAction", "/characters");
         return "new-character-form";
     }
 
@@ -67,6 +68,7 @@ public class BlackOpsSpecialistUiController {
                          RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("formTitle", "Add Specialist");
+            model.addAttribute("formAction", "/characters");
             model.addAttribute("errors", bindingResult.getFieldErrors().stream().map(e -> e.getField() + ": " + e.getDefaultMessage()).toList());
             return "new-character-form";
         }
@@ -76,7 +78,14 @@ public class BlackOpsSpecialistUiController {
     }
 
     // Edit character form page
-    
+    @GetMapping("/characters/{id}/edit")
+    public String editForm(@PathVariable Long id, Model model) {
+        BlackOpsSpecialist character = service.getBlackOpsSpecialistById(id);
+        model.addAttribute("myChar", character);
+        model.addAttribute("formTitle", "Edit Specialist");
+        model.addAttribute("formAction", "/characters/" + id);
+        return "new-character-form";
+    }
 
     // About page
     @GetMapping ("/characters/about")
