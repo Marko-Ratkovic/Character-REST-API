@@ -52,12 +52,12 @@
 
             <div class="mb-3">
                 <label for="backstory" class="form-label" style="color: orange !important;">Backstory*</label>
-                <textarea class="form-control" id="backstory" name="backstory" rows="4" required>${(myChar.backstory)!''}</textarea>
+                <textarea class="form-control" id="backstory" name="backstory" rows="4" required placeholder="Tell the specialist's story: where they came from, what shaped them into the specialist they are today...">${(myChar.backstory)!''}</textarea>
             </div>
 
             <div class="mb-3">
                 <label for="personality" class="form-label" style="color: orange !important;">Personality*</label>
-                <textarea class="form-control" id="personality" name="personality" rows="3" required>${(myChar.personality)!''}</textarea>
+                <textarea class="form-control" id="personality" name="personality" rows="3" required placeholder="Describe how they act and come across: their temperament, how they treat allies, and how they behave in combat...">${(myChar.personality)!''}</textarea>
             </div>
 
             <div class="text-center">
