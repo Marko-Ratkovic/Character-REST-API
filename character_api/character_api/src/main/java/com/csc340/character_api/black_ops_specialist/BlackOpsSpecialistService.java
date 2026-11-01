@@ -55,6 +55,10 @@ public class BlackOpsSpecialistService {
         existingBlackOpsSpecialist.setUniverse(updatedBlackOpsSpecialist.getUniverse());
         existingBlackOpsSpecialist.setRoles(updatedBlackOpsSpecialist.getRoles());
         existingBlackOpsSpecialist.setEquipment(updatedBlackOpsSpecialist.getEquipment());
+        existingBlackOpsSpecialist.setBackstory(updatedBlackOpsSpecialist.getBackstory());
+        existingBlackOpsSpecialist.setPersonality(updatedBlackOpsSpecialist.getPersonality());
+        existingBlackOpsSpecialist.setFirstAppearance(updatedBlackOpsSpecialist.getFirstAppearance());
+        existingBlackOpsSpecialist.setImageUrl(updatedBlackOpsSpecialist.getImageUrl());
         return repository.save(existingBlackOpsSpecialist);
     }
 

@@ -1,10 +1,14 @@
 package com.csc340.character_api.black_ops_specialist;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.*;
+import lombok.*;
 
 @Entity
 @Table(name = "black_ops_specialists")
+@Getter
+@Setter 
+@NoArgsConstructor 
 public class BlackOpsSpecialist {
     
     @Id
@@ -26,51 +30,21 @@ public class BlackOpsSpecialist {
     @NotBlank
     private String equipment;
 
-    public BlackOpsSpecialist() {
-        
-    }
+    @NotBlank
+    @Size(max = 2000)
+    @Column(length = 2000)
+    private String backstory;
+    
+    @NotBlank
+    @Size(max = 2000)
+    @Column(length = 2000)
+    private String personality;
+    
+    @NotBlank
+    @Size(max = 100)
+    @Column(length = 100)
+    private String firstAppearance;
 
-    public Long getCharacterId() {
-        return characterId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getUniverse() {
-        return universe;
-    }
-
-    public void setUniverse(String universe) {
-        this.universe = universe;
-    }
-
-    public String getRoles() {
-        return roles;
-    }
-
-    public void setRoles(String roles) {
-        this.roles = roles;
-    }
-
-    public String getEquipment() {
-        return equipment;
-    }
-
-    public void setEquipment(String equipment) {
-        this.equipment = equipment;
-    }
+    @Column(length = 500)
+    private String imageUrl;
 }
