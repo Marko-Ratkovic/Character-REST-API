@@ -17,27 +17,14 @@ public class BlackOpsSpecialistService {
         return repository.findAll();
     }
 
-    // Combines optional filters to find a list of BlackOpsSpecialists. Either argument may be null.
+    // Any argument may be null. All filters that are given must match (partial, case-insensitive).
     public List<BlackOpsSpecialist> getBlackOpsSpecialistsByFilters(String name, String roles, String universe, String equipment) {
-        if (name != null) {
-            return repository.findByNameContainingIgnoreCase(name);
-        } else if (roles != null && universe != null && equipment != null) {
-            return repository.findByRolesContainingIgnoreCaseAndUniverseContainingIgnoreCaseAndEquipmentContainingIgnoreCase(roles, universe, equipment);
-        } else if (roles != null && universe != null) {
-            return repository.findByRolesContainingIgnoreCaseAndUniverseContainingIgnoreCase(roles, universe);
-        } else if (roles != null && equipment != null) {
-            return repository.findByRolesContainingIgnoreCaseAndEquipmentContainingIgnoreCase(roles, equipment);
-        } else if (universe != null && equipment != null) {
-            return repository.findByUniverseContainingIgnoreCaseAndEquipmentContainingIgnoreCase(universe, equipment);
-        } else if (roles != null) {
-            return repository.findByRolesContainingIgnoreCase(roles);
-        } else if (universe != null) {
-            return repository.findByUniverseContainingIgnoreCase(universe);
-        } else if (equipment != null) {
-            return repository.findByEquipmentContainingIgnoreCase(equipment);
-        } else {
-            return getAllBlackOpsSpecialists();
-        }
+        return repository.findAll().stream()
+                .filter(s -> matches(s.getName(), name))
+                .filter(s -> matches(s.getRoles(), roles))
+                .filter(s -> matches(s.getUniverse(), universe))
+                .filter(s -> matches(s.getEquipment(), equipment))
+                .toList();
     }
 
     public BlackOpsSpecialist getBlackOpsSpecialistById(Long id) {
@@ -65,5 +52,10 @@ public class BlackOpsSpecialistService {
     public void deleteBlackOpsSpecialist(Long id) {
         getBlackOpsSpecialistById(id); // Ensure the entity exists before attempting to delete and if entity not found, throws a 404 error.
         repository.deleteById(id);
+    }
+
+    // Helper method for case-insensitive partial matching
+    private boolean matches(String value, String search) {
+        return search == null || (value != null && value.toLowerCase().contains(search.toLowerCase()));
     }
 }

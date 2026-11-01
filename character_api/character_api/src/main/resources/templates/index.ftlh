@@ -4,8 +4,12 @@
     <h1 class="fw-bold" style="color: orange;">Call of Duty Specialists Gallery</h1>
     <p class="mb-4" style="color: orange;">Explore the amazing collection of diverse specialists in the Call of Duty Black Ops universe.</p>
 
-    <#-- Search form -->
-    <form action="/characters" method="get" class="row g-2 mb-3">
+    <#-- Search form: GET to / with name, equipment, and the selected role -->
+    <form action="/" method="get" class="row g-2 mb-3">
+      <#-- Keep the selected role pill when searching -->
+      <#if (roles!'')?has_content>
+        <input type="hidden" name="roles" value="${roles}">
+      </#if>
       <div class="col-md-5">
         <input type="text" name="name" value="${name!''}" class="form-control bg-dark text-light border-secondary" placeholder="Search by name...">
       </div>
@@ -14,15 +18,15 @@
       </div>
       <div class="col-md-3">
         <button type="submit" class="btn btn-orange-active">Search</button>
-        <a href="/characters" class="btn btn-orange-inactive">Clear</a>
+        <a href="/" class="btn btn-orange-inactive">Clear</a>
       </div>
     </form>
 
-    <#-- Filter pill buttons -->
+    <#-- Filter pill buttons: each keeps the typed name and equipment -->
     <div>
-      <a href="/characters" class="btn btn-sm me-2 ${(roles!'')?has_content?then('btn-orange-inactive', 'btn-orange-active')}">All</a>
+      <a href="/?name=${(name!'')?url}&amp;equipment=${(equipment!'')?url}" class="btn btn-sm me-2 ${(roles!'')?has_content?then('btn-orange-inactive', 'btn-orange-active')}">All</a>
       <#list ["Pyrotechnic", "Assassin", "Exterminator", "Support", "Hacker", "Scout", "Assault"] as r>
-        <a href="/characters?roles=${r}" class="btn btn-sm me-2 ${((roles!'') == r)?then('btn-orange-active', 'btn-orange-inactive')}">${r}</a>
+        <a href="/?roles=${r?url}&amp;name=${(name!'')?url}&amp;equipment=${(equipment!'')?url}" class="btn btn-sm me-2 ${((roles!'') == r)?then('btn-orange-active', 'btn-orange-inactive')}">${r}</a>
       </#list>
     </div>
   </div>
