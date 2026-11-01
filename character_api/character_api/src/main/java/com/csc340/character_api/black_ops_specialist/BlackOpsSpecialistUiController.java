@@ -73,7 +73,7 @@ public class BlackOpsSpecialistUiController {
             return "new-character-form";
         }
         BlackOpsSpecialist createdCharacter = service.createBlackOpsSpecialist(character);
-        redirectAttributes.addFlashAttribute("successMessage", "Specialist added successfully!");
+        redirectAttributes.addFlashAttribute("message", "Specialist added successfully!");
         return "redirect:/characters" + createdCharacter.getCharacterId();
     }
 
@@ -84,7 +84,27 @@ public class BlackOpsSpecialistUiController {
         model.addAttribute("myChar", character);
         model.addAttribute("formTitle", "Edit Specialist");
         model.addAttribute("formAction", "/characters/" + id);
+        model.addAttribute("characterId", id);
         return "new-character-form";
+    }
+
+    @PostMapping ("/characters/{id}")
+    public String update(@PathVariable Long id,
+                         @Valid @ModelAttribute("myChar") BlackOpsSpecialist character,
+                         BindingResult bindingResult,
+                         Model model,
+                         RedirectAttributes redirectAttributes) {
+        service.getBlackOpsSpecialistById(id); // Ensure the entity exists before attempting to update and if entity not found, throws a 404 error.
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("formTitle", "Edit Specialist");
+            model.addAttribute("formAction", "/characters/" + id);
+            model.addAttribute("characterId", id);
+            model.addAttribute("errors", bindingResult.getFieldErrors().stream().map(e -> e.getField() + ": " + e.getDefaultMessage()).toList());
+            return "new-character-form";
+        }
+        BlackOpsSpecialist updatedCharacter = service.updateBlackOpsSpecialist(id, character);
+        redirectAttributes.addFlashAttribute("message", "Specialist updated successfully!");
+        return "redirect:/characters/" + updatedCharacter.getCharacterId();
     }
 
     // About page
