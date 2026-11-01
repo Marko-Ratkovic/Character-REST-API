@@ -34,7 +34,10 @@
             <#nested>
         </main>
         
-    <footer class="container py-3 text-secondary">Black Ops Specialists &middot; Spring Boot MVC + FreeMarker</footer>
+    <footer class="bg-dark text-center py-3 mt-5">
+        <p class="text-light mb-0" style="color: orange !important;">© 2026 Call of Duty Specialists Gallery. Created as an educational project.
+            Black Ops Specialists &middot; Spring Boot MVC + FreeMarker</p>
+    </footer>
 </body>
 
 </html>
