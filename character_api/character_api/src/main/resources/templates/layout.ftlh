@@ -28,8 +28,8 @@
         
         <main class="container py-4">
             <#-- A flash message survives exactly one redirect (see RedirectAttributes in the controller). -->
-            <#if message??>
-            <div class="alert alert-warning">${message}</div>
+            <#if (message!'')?has_content>
+                <div class="alert alert-warning">${message}</div>
             </#if>
             <#nested>
         </main>

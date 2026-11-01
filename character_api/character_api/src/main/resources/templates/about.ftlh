@@ -34,11 +34,40 @@
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <img src="/images/Gallery-image.png" class="img-fluid rounded" alt="Gallery Image">
+                    <img src="/images/Gallery-image.jpg" class="img-fluid rounded" alt="Gallery Image">
                     <p class="text-secondary text-center small mt-2" style="color: orange !important;">Image showing most of the specialists from Call of Duty: Black Ops 4.
                         Image courtesy of public stock photo services.</p>
                 </div>
             </div>
+
+            <#-- How the app works -->
+            <hr class="border-secondary my-5">
+
+            <h3 class="fw-bold" style="color: orange !important;">How a page request flows</h3>
+            <ol style="color: orange !important;">
+                <li>The browser requests a URL, for example <code>/characters/3</code>.</li>
+                <li>A <code>@Controller</code> method runs, asks the service for data, and puts it in the <code>Model</code>.</li>
+                <li>The controller returns a view name, and Spring renders the matching FreeMarker template.</li>
+                <li>The browser receives HTML.</li>
+            </ol>
+
+            <h3 class="fw-bold mt-4" style="color: orange !important;">Two front ends, one backend</h3>
+            <p style="color: orange !important;">The same database and the same service layer power two front ends: a JSON API for programs, and the HTML pages you are looking at now for people.</p>
+            <div class="table-responsive">
+                <table class="table table-dark table-bordered align-middle">
+                    <thead>
+                        <tr><th></th><th>Web pages</th><th>JSON API</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Controller</td><td><code>BlackOpsSpecialistUiController</code></td><td><code>BlackOpsSpecialistController</code></td></tr>
+                        <tr><td>URLs</td><td><code>/</code>, <code>/characters/...</code>, <code>/about</code></td><td><code>/api/characters/...</code></td></tr>
+                        <tr><td>Returns</td><td>HTML from templates</td><td>JSON</td></tr>
+                        <tr><td>Calls</td><td colspan="2">the same <code>BlackOpsSpecialistService</code> and <code>BlackOpsSpecialistRepository</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="color: orange !important;">Pictures are image files in the static images folder, and each specialist's image path is saved in the database.</p>
 
             <#-- Bottom button -->
             <div class="bg-secondary bg-opacity-10 text-center py-4 mt-5 rounded">

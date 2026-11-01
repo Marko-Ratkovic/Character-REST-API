@@ -120,6 +120,4 @@ public class BlackOpsSpecialistUiController {
     public String about() {
         return "about";
     }
-
-
 }
