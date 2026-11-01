@@ -1,7 +1,6 @@
 package com.csc340.character_api.black_ops_specialist;
 
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

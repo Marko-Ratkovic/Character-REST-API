@@ -21,7 +21,7 @@
                 <div class="navbar-nav">
                     <a href="/" class="nav-link ${(active == 'home')?then('btn-orange-active', 'btn-orange-inactive')}">Home</a>
                     <a href="/characters/about" class="nav-link ${(active == 'about')?then('btn-orange-active', 'btn-orange-inactive')}">About</a>
-                    <a href="/new-character-form" class="nav-link ${(active == 'new')?then('btn-orange-active', 'btn-orange-inactive')}">Add Specialist</a>
+                    <a href="/characters/new" class="nav-link ${(active == 'new')?then('btn-orange-active', 'btn-orange-inactive')}">Add Specialist</a>
                 </div>
             </div>
         </nav>
